@@ -37,7 +37,7 @@ export const ReferralSection: React.FC<ReferralSectionProps> = ({ isLight = fals
       <div className="flex items-start justify-between gap-6">
         <div className="space-y-1 text-left">
           <div className="flex items-center gap-3">
-             <h2 className="text-4xl font-bold text-brand-textHigh tracking-widest uppercase">
+             <h2 className="text-4xl font-bold text-white tracking-widest uppercase">
                {isLight ? 'Referral Protocol' : 'Affiliate Protocol'}
              </h2>
              <span className="px-3 py-1 rounded-full text-xs font-medium uppercase tracking-widest bg-cyan-900/30 text-cyan-400 border border-cyan-500/20">

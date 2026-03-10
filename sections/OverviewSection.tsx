@@ -72,7 +72,7 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({ onNavigate, is
     <div className="space-y-6 theme-transition pb-20 pt-0">
       <div className="flex items-start justify-between gap-6">
         <div className="space-y-1 text-left">
-          <h2 className="text-4xl font-bold text-brand-textHigh tracking-widest uppercase">Dashboard</h2>
+          <h2 className="text-4xl font-bold text-white tracking-widest uppercase">Dashboard</h2>
           <p className="text-sm font-medium text-slate-400 uppercase tracking-widest mt-2">Operational Performance Hub</p>
         </div>
         
@@ -125,7 +125,7 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({ onNavigate, is
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <TrendingUp size={16} className="text-brand-neon" />
-                  <h3 className={`text-lg font-semibold uppercase leading-none text-brand-textHigh`}>WALLET DEPOSITS</h3>
+                  <h3 className={`text-lg font-semibold uppercase leading-none ${isLight ? 'text-slate-900' : 'text-white'}`}>WALLET DEPOSITS</h3>
                 </div>
                 <p className="text-[9px] font-medium opacity-80 uppercase tracking-widest">Daily inflow to your main balance</p>
               </div>
@@ -160,7 +160,7 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({ onNavigate, is
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <Activity size={16} className="text-brand-pink" />
-                  <h3 className={`text-lg font-semibold uppercase leading-none text-brand-textHigh`}>AD ACCOUNT ACTIVITY</h3>
+                  <h3 className={`text-lg font-semibold uppercase leading-none ${isLight ? 'text-slate-900' : 'text-white'}`}>AD ACCOUNT ACTIVITY</h3>
                 </div>
                 <p className="text-[9px] font-medium opacity-80 uppercase tracking-widest">Top-ups vs Withdrawals by day</p>
               </div>

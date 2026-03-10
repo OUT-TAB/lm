@@ -153,7 +153,7 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
       {/* Header */}
       <div className="flex items-start justify-between gap-4 px-2">
         <div className="text-left">
-          <h2 className="text-4xl font-bold text-brand-textHigh tracking-widest uppercase">AD NODES</h2>
+          <h2 className="text-4xl font-bold text-white tracking-widest uppercase">AD NODES</h2>
           <div className="flex items-center gap-2 mt-1 font-medium text-sm uppercase tracking-widest text-slate-400">
             <Zap size={16} className="text-cyan-400" />
             Real-time Node Control Interface
@@ -198,7 +198,7 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
                 {/* Card Meta */}
                 <div className="flex justify-between items-start mb-2">
                   <div className="truncate pr-2">
-                    <h4 className={`text-sm font-semibold tracking-tight leading-none uppercase truncate text-brand-textHigh`}>
+                    <h4 className={`text-sm font-semibold tracking-tight leading-none uppercase truncate ${isLight ? 'text-slate-950' : 'text-white'}`}>
                       {acc.name}
                     </h4>
                     <p className={`text-[7px] font-mono uppercase tracking-widest mt-1 font-medium opacity-80 ${isLight ? 'text-slate-500' : 'text-zinc-500'}`}>
@@ -220,7 +220,7 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
                     <p className="text-[6px] font-medium uppercase tracking-widest opacity-80 mb-1">Available Magnitude</p>
                     <div className="flex items-baseline">
                       <span className={`text-base font-bold tracking-[-0.01em] tabular-nums mr-0.5 ${acc.status === 'Active' ? 'text-brand-active' : 'text-brand-paused'}`}>$</span>
-                      <p className={`text-4xl font-bold tracking-[-0.01em] tabular-nums leading-none text-brand-textHigh`}>
+                      <p className={`text-4xl font-bold tracking-[-0.01em] tabular-nums leading-none ${isLight ? 'text-slate-950' : 'text-white'}`}>
                         {acc.balance}
                       </p>
                     </div>
@@ -297,7 +297,7 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
 
                 {/* Name & ID */}
                 <div className="truncate">
-                  <h4 className={`text-[11px] font-semibold uppercase leading-none truncate text-brand-textHigh`}>{acc.name}</h4>
+                  <h4 className={`text-[11px] font-semibold uppercase leading-none truncate ${isLight ? 'text-slate-950' : 'text-white'}`}>{acc.name}</h4>
                   <p className="text-[6px] font-mono uppercase tracking-widest mt-0.5 font-medium opacity-80">ID: {acc.id}</p>
                 </div>
               </div>
@@ -318,7 +318,7 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
                 <p className="text-[5px] font-medium uppercase tracking-widest opacity-80">MAGNITUDE</p>
                 <div className="flex items-baseline">
                   <span className={`text-[8px] font-bold tracking-[-0.01em] tabular-nums mr-0.5 ${acc.status === 'Active' ? 'text-brand-active' : 'text-brand-paused'}`}>$</span>
-                  <p className={`text-base font-bold tracking-[-0.01em] tabular-nums leading-none text-brand-textHigh`}>
+                  <p className={`text-base font-bold tracking-[-0.01em] tabular-nums leading-none ${isLight ? 'text-slate-950' : 'text-white'}`}>
                     {acc.balance}
                   </p>
                 </div>
@@ -362,7 +362,7 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
                     <Settings2 size={18} />
                   </div>
                   <div>
-                    <h3 className={`text-lg font-bold tracking-[-0.01em] uppercase leading-none text-brand-textHigh`}>Auto Protocol</h3>
+                    <h3 className={`text-lg font-bold tracking-[-0.01em] uppercase leading-none ${isLight ? 'text-slate-900' : 'text-white'}`}>Auto Protocol</h3>
                     <p className={`text-[9px] font-medium uppercase tracking-widest mt-1 opacity-80 ${isLight ? 'text-slate-400' : 'text-brand-textLow'}`}>NODE: {configAccount.name}</p>
                   </div>
                 </div>

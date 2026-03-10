@@ -1,24 +1,11 @@
 // Fix: Import React to resolve React.ReactNode namespace errors
 import React from "react";
-import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Sans } from "next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
-
-const ibmPlexSans = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-ibm-plex",
-});
 
 export const metadata: Metadata = {
   title: "1AdSet",
   description: "High-Performance Ad Scaling Dashboard",
-};
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  themeColor: "#010101",
 };
 
 export default function RootLayout({
@@ -27,8 +14,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={ibmPlexSans.variable}>
-      <body className="antialiased">{children}</body>
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

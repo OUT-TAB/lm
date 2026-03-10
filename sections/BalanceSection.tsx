@@ -64,7 +64,7 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
     <div className="space-y-12 pb-24 animate-in fade-in duration-1000 pt-0">
       <div className="flex items-start justify-between gap-6">
         <div className="space-y-1 text-left">
-          <h2 className="text-4xl font-bold text-brand-textHigh tracking-widest uppercase">Balance Portal</h2>
+          <h2 className="text-4xl font-bold text-white tracking-widest uppercase">Balance Portal</h2>
           <p className="text-sm font-medium text-slate-400 flex items-center justify-start gap-2 mt-3">
             <ShieldCheck size={18} className="text-cyan-400" /> 
             Manage liquid assets across multi-chain and local protocols.
@@ -74,7 +74,7 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <GlassCard className="lg:col-span-4 min-h-[440px] flex flex-col justify-between">
-          <div className="p-6">
+          <div className="p-2">
             <p className="label-tracking mb-6 font-medium opacity-80">MAIN LIQUIDITY</p>
             <div className="flex items-center gap-3 mb-12">
               <div className={`w-3 h-3 rounded-full animate-pulse ${isLight ? 'bg-brand-pink shadow-[0_0_15px_var(--brand-pink)]' : 'bg-brand-neon shadow-[0_0_15px_var(--brand-neon)]'}`} />
@@ -83,7 +83,7 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
             <div className="relative group/balance">
               <div className="flex items-baseline flex-wrap relative z-10">
                 <span className={`text-3xl md:text-4xl font-bold tracking-[-0.01em] tabular-nums mr-2 ${isLight ? 'text-brand-pink' : 'text-brand-neon'}`}>$</span>
-                <h3 className={`text-6xl md:text-8xl font-bold tracking-[-0.01em] tabular-nums text-brand-textHigh`}>198.28</h3>
+                <h3 className={`text-6xl md:text-8xl font-bold tracking-[-0.01em] tabular-nums ${isLight ? 'text-slate-950' : 'text-white'}`}>198.28</h3>
               </div>
               {/* Dynamic Liquidity Indicator */}
               <div className="mt-6 space-y-2">
@@ -128,7 +128,7 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
                 
                 <div className="flex justify-between items-center relative z-10 gap-4">
                   <div className="flex-1">
-                    <h4 className={`text-xl md:text-2xl font-semibold uppercase leading-tight mb-1 text-brand-textHigh`}>{m.label}</h4>
+                    <h4 className={`text-xl md:text-2xl font-semibold uppercase leading-tight mb-1 ${isLight ? 'text-slate-900' : 'text-white'}`}>{m.label}</h4>
                     <p className="text-[8px] md:text-[9px] font-medium uppercase tracking-[0.2em] opacity-80">{m.sub}</p>
                   </div>
                   <div className={`w-24 h-12 md:w-28 md:h-14 flex items-center justify-end text-white transition-transform duration-500 group-hover/card:scale-105`}>
@@ -151,7 +151,7 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
       </div>
 
       <div className="space-y-6 pt-12">
-        <h3 className={`text-3xl font-bold tracking-[-0.01em] uppercase text-brand-textHigh`}>Ledger Records</h3>
+        <h3 className={`text-3xl font-bold tracking-[-0.01em] uppercase ${isLight ? 'text-slate-900' : 'text-white'}`}>Ledger Records</h3>
         <GlassCard className="!p-0 overflow-hidden shadow-2xl">
           <div className="overflow-x-auto no-scrollbar">
             <table className="w-full text-left">
@@ -191,7 +191,7 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
           <div className="absolute inset-0 bg-brand-dark/95 backdrop-blur-2xl" onClick={() => setModalType(null)} />
           <div className={`relative w-full max-w-lg rounded-[3rem] p-12 shadow-2xl border ${isLight ? 'bg-white border-slate-200' : 'bg-[#0A0A0A] border-white/10'}`}>
             <div className="flex justify-between items-center mb-12">
-              <h3 className={`text-4xl font-bold tracking-[-0.01em] uppercase text-brand-textHigh`}>Magnitude</h3>
+              <h3 className={`text-4xl font-bold tracking-[-0.01em] uppercase ${isLight ? 'text-slate-950' : 'text-white'}`}>Magnitude</h3>
               <button onClick={() => setModalType(null)} className="p-2 hover:rotate-90 transition-transform"><X size={36} /></button>
             </div>
             <div className="text-center space-y-8 md:space-y-12">
@@ -201,7 +201,7 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
                   type="text" 
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
-                  className={`bg-transparent border-none text-6xl md:text-8xl font-bold tracking-[-0.01em] tabular-nums focus:outline-none w-full text-center text-brand-textHigh`}
+                  className={`bg-transparent border-none text-6xl md:text-8xl font-bold tracking-[-0.01em] tabular-nums focus:outline-none w-full text-center ${isLight ? 'text-slate-950' : 'text-white'}`}
                 />
               </div>
               <button className={`w-full py-8 rounded-3xl font-bold uppercase active:scale-95 transition-all flex items-center justify-center gap-4 ${isLight ? 'bg-slate-950 text-white shadow-xl' : 'bg-gradient-to-r from-brand-neon to-brand-pink text-brand-dark shadow-[0_0_20px_rgba(34,211,238,0.25)]'}`}>

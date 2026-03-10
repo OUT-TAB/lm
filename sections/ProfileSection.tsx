@@ -14,7 +14,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({ isLight = false 
     <div className="space-y-8 animate-in fade-in duration-500 pb-20 pt-0">
       <div className="flex items-start justify-between gap-4">
         <div className="space-y-1 text-left">
-          <h2 className="text-4xl font-bold text-brand-textHigh tracking-widest uppercase">Profile Core</h2>
+          <h2 className="text-4xl font-bold text-white tracking-widest uppercase">Profile Core</h2>
           <p className="text-sm font-medium text-slate-400 mt-2">Manage your operational identity and sync parameters.</p>
         </div>
         <button className={`px-6 py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all flex items-center gap-3 border ${isLight ? 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50 shadow-sm' : 'bg-brand-surface border-brand-border text-brand-textLow hover:text-white'}`}>

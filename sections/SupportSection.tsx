@@ -13,7 +13,7 @@ export const SupportSection: React.FC<SupportSectionProps> = ({ isLight = false 
   return (
     <div className="space-y-8 pb-20 pt-0">
       <div className="text-left max-w-3xl mr-auto space-y-6 py-12">
-        <h2 className="text-4xl font-bold text-brand-textHigh tracking-widest uppercase">Liaison Hub</h2>
+        <h2 className="text-4xl font-bold text-white tracking-widest uppercase">Liaison Hub</h2>
         <p className="text-sm font-medium text-slate-400">Broadcast your operational signal to our tactical agents.</p>
         
         <div className="relative mt-12 group max-w-2xl mr-auto">
@@ -32,7 +32,7 @@ export const SupportSection: React.FC<SupportSectionProps> = ({ isLight = false 
         {[
           { title: 'Signal Chat', desc: 'Real-time sync with agents.', color: isLight ? 'text-brand-pink' : 'text-brand-neon' },
           { title: 'Deep Channel', desc: 'Secure dispatch (24h sync).', color: isLight ? 'text-brand-pink' : 'text-brand-pink' },
-          { title: 'Intel Base', desc: 'Technical documentations.', color: 'text-brand-textHigh' }
+          { title: 'Intel Base', desc: 'Technical documentations.', color: isLight ? 'text-slate-900' : 'text-white' }
         ].map((item, i) => (
           <GlassCard key={i} className="flex flex-col items-center text-center py-12 hover:translate-y-[-8px] transition-all duration-500 border-none shadow-xl">
             <h4 className="text-2xl font-bold text-brand-textHigh tracking-[-0.01em] mb-4 uppercase">{item.title}</h4>

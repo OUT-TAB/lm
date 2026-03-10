@@ -42,7 +42,7 @@ export const GlassCard: React.FC<GlassCardProps> = ({
     <div 
       className={`relative transition-all duration-500 rounded-brand-card group/card overflow-hidden hover-lift card-glow-shadow border
       ${isLight 
-        ? 'bg-brand-card border-brand-border' 
+        ? 'bg-slate-50/40 backdrop-blur-2xl border-brand-border' 
         : 'bg-brand-card border-white/5 hover:bg-white/5'
       } ${className}`}
       onClick={onClick}
@@ -52,14 +52,14 @@ export const GlassCard: React.FC<GlassCardProps> = ({
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <div className={`${getGlowClass()} transition-all duration-700 ${
           variant === 'default' 
-            ? (isLight ? '' : 'opacity-30 group-hover/card:opacity-100')
-            : (isLight ? '' : 'opacity-20 group-hover/card:opacity-60')
+            ? (isLight ? 'opacity-0' : 'opacity-30 group-hover/card:opacity-100')
+            : (isLight ? 'opacity-0' : 'opacity-20 group-hover/card:opacity-60')
         }`} />
       </div>
       
-      {/* 2. Inner Mask - Opaque in Light Mode to block internal motion */}
+      {/* 2. Inner Mask - Thinner for Light Mode to expose the glow edge more clearly */}
       <div className={`absolute rounded-[calc(1.25rem-2px)] z-10 pointer-events-none ${
-        isLight ? 'inset-[2px] bg-brand-card' : 'inset-[1.5px] bg-brand-card'
+        isLight ? 'inset-[2px] bg-slate-50/40' : 'inset-[1.5px] bg-brand-card'
       }`} />
 
       {/* 3. Interaction Surface Reflection */}

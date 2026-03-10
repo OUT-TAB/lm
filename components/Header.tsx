@@ -53,7 +53,7 @@ export const Header: React.FC<HeaderProps> = memo(({
             <p className="text-sm font-bold text-brand-textHigh leading-none uppercase">John Doe</p>
           </div>
           <div className="w-10 h-10 rounded-xl p-[2px] bg-gradient-to-br from-brand-neon to-brand-pink shadow-lg">
-            <div className={`w-full h-full rounded-[10px] flex items-center justify-center font-bold text-xs bg-brand-surface text-brand-textHigh`}>
+            <div className={`w-full h-full rounded-[10px] flex items-center justify-center font-bold text-xs ${isLight ? 'bg-white text-slate-900' : 'bg-brand-dark text-white'}`}>
               JD
             </div>
           </div>

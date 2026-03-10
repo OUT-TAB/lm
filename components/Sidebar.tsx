@@ -54,7 +54,7 @@ export const Sidebar: React.FC<SidebarProps> = memo(({ activeId, setActiveId, is
             <CheckCircle2 size={24} strokeWidth={2.5} />
           </div>
           {!isCollapsed && (
-            <span className={`text-xl font-bold tracking-[-0.01em] truncate uppercase text-brand-textHigh`}>
+            <span className={`text-xl font-bold tracking-[-0.01em] truncate uppercase ${isLight ? 'text-slate-900' : 'text-brand-textHigh'}`}>
               1AdSet
             </span>
           )}
