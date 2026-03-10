@@ -15,8 +15,10 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState('overview');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [isAnimationEnabled, setIsAnimationEnabled] = useState(true);
 
   const toggleTheme = () => setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  const toggleAnimation = () => setIsAnimationEnabled(prev => !prev);
 
   useEffect(() => {
     if (theme === 'light') {
@@ -25,6 +27,14 @@ export default function Home() {
       document.body.classList.remove('light-mode');
     }
   }, [theme]);
+
+  useEffect(() => {
+    if (!isAnimationEnabled) {
+      document.body.classList.add('no-animations');
+    } else {
+      document.body.classList.remove('no-animations');
+    }
+  }, [isAnimationEnabled]);
 
   const isLight = theme === 'light';
 
@@ -55,6 +65,8 @@ export default function Home() {
           setSidebarCollapsed={setIsSidebarCollapsed} 
           theme={theme}
           toggleTheme={toggleTheme}
+          isAnimationEnabled={isAnimationEnabled}
+          toggleAnimation={toggleAnimation}
         />
         
         <div className="flex-1 overflow-y-auto p-8 scroll-smooth theme-transition">

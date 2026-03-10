@@ -17,8 +17,8 @@ const LOGOS = {
     <svg viewBox="0 0 120 40" className="w-full h-full" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
       <path d="M10 5h15v30H10z" fill="#005C9E" />
       <path d="M30 5l15 15-15 15z" fill="#F37021" />
-      <text x="52" y="28" fontFamily="Satoshi, sans-serif" fontWeight="900" fontSize="20" fill="currentColor">CIH</text>
-      <text x="52" y="36" fontFamily="Satoshi, sans-serif" fontWeight="500" fontSize="7" fill="currentColor" opacity="0.6" letterSpacing="0.1em">BANK</text>
+      <text x="52" y="28" fontFamily="Outfit, sans-serif" fontWeight="900" fontSize="20" fill="currentColor">CIH</text>
+      <text x="52" y="36" fontFamily="Inter, sans-serif" fontWeight="500" fontSize="7" fill="currentColor" opacity="0.6" letterSpacing="0.1em">BANK</text>
     </svg>
   ),
   USDT: (
@@ -31,13 +31,13 @@ const LOGOS = {
     <svg viewBox="0 0 120 40" className="w-full h-full" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
       <circle cx="20" cy="20" r="12" fill="#FF4800" />
       <circle cx="20" cy="20" r="6" fill="white" fillOpacity="0.2" />
-      <text x="40" y="26" fontFamily="Satoshi, sans-serif" fontWeight="800" fontSize="16" fill="currentColor">Payoneer</text>
+      <text x="40" y="26" fontFamily="Outfit, sans-serif" fontWeight="800" fontSize="16" fill="currentColor">Payoneer</text>
     </svg>
   ),
   WISE: (
     <svg viewBox="0 0 120 40" className="w-full h-full" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
       <path d="M10 10L18 30L32 10" stroke="#9FE870" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <text x="40" y="26" fontFamily="Satoshi, sans-serif" fontWeight="800" fontSize="22" fill="currentColor">Wise</text>
+      <text x="40" y="26" fontFamily="Outfit, sans-serif" fontWeight="800" fontSize="22" fill="currentColor">Wise</text>
     </svg>
   )
 };
@@ -61,12 +61,14 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
   ];
 
   return (
-    <div className="space-y-12 pb-24 animate-in fade-in duration-1000 pt-0">
-      <div className="flex items-start justify-between gap-6">
-        <div className="space-y-1 text-left">
-          <h2 className="text-4xl font-bold text-white tracking-widest uppercase">Balance Portal</h2>
-          <p className="text-sm font-medium text-slate-400 flex items-center justify-start gap-2 mt-3">
-            <ShieldCheck size={18} className="text-cyan-400" /> 
+    <div className="space-y-12 pb-24 animate-in fade-in duration-1000">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div className="space-y-1">
+          <h2 className={`text-5xl font-black tracking-tighter uppercase italic leading-none ${isLight ? 'text-slate-900' : 'text-white'}`}>
+            Balance Portal
+          </h2>
+          <p className={`font-medium flex items-center gap-2 mt-3 italic text-sm ${isLight ? 'text-slate-500' : 'text-brand-textLow'}`}>
+            <ShieldCheck size={18} className={isLight ? 'text-brand-pink' : 'text-brand-neon'} /> 
             Manage liquid assets across multi-chain and local protocols.
           </p>
         </div>
@@ -75,21 +77,21 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <GlassCard className="lg:col-span-4 min-h-[440px] flex flex-col justify-between">
           <div className="p-2">
-            <p className="label-tracking mb-6 font-medium opacity-80">MAIN LIQUIDITY</p>
+            <p className="label-tracking mb-6 opacity-60">MAIN LIQUIDITY</p>
             <div className="flex items-center gap-3 mb-12">
               <div className={`w-3 h-3 rounded-full animate-pulse ${isLight ? 'bg-brand-pink shadow-[0_0_15px_var(--brand-pink)]' : 'bg-brand-neon shadow-[0_0_15px_var(--brand-neon)]'}`} />
-              <span className="text-[10px] font-medium uppercase tracking-widest opacity-80">Sync Status: Active</span>
+              <span className="text-[10px] font-black uppercase tracking-widest italic opacity-80">Sync Status: Active</span>
             </div>
             <div className="relative group/balance">
               <div className="flex items-baseline flex-wrap relative z-10">
-                <span className={`text-3xl md:text-4xl font-bold tracking-[-0.01em] tabular-nums mr-2 ${isLight ? 'text-brand-pink' : 'text-brand-neon'}`}>$</span>
-                <h3 className={`text-6xl md:text-8xl font-bold tracking-[-0.01em] tabular-nums ${isLight ? 'text-slate-950' : 'text-white'}`}>198.28</h3>
+                <span className={`text-3xl md:text-4xl font-black mr-2 ${isLight ? 'text-brand-pink' : 'text-brand-neon'}`}>$</span>
+                <h3 className={`text-6xl md:text-8xl heavy-italic tracking-tighter ${isLight ? 'text-slate-950' : 'text-white'}`}>198.28</h3>
               </div>
               {/* Dynamic Liquidity Indicator */}
               <div className="mt-6 space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-[9px] font-medium uppercase tracking-[0.2em] opacity-80">Liquidity Level</span>
-                  <span className={`text-[10px] font-bold tracking-[-0.01em] tabular-nums ${isLight ? 'text-brand-pink' : 'text-brand-neon'}`}>84.2%</span>
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] opacity-40 italic">Liquidity Level</span>
+                  <span className={`text-[10px] font-black italic ${isLight ? 'text-brand-pink' : 'text-brand-neon'}`}>84.2%</span>
                 </div>
                 <div className={`h-1.5 w-full rounded-full overflow-hidden ${isLight ? 'bg-slate-100' : 'bg-white/5'}`}>
                   <div 
@@ -105,8 +107,8 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
           </div>
           <button 
             onClick={() => setModalType('deposit')}
-            className={`w-full py-6 font-bold rounded-2xl flex items-center justify-center gap-4 transition-all active:scale-95 uppercase tracking-widest text-sm ${
-              isLight ? 'bg-slate-950 text-white hover:bg-slate-800 shadow-2xl' : 'bg-gradient-to-r from-brand-neon to-brand-pink text-brand-dark shadow-[0_0_20px_rgba(34,211,238,0.25)]'
+            className={`w-full py-6 font-black rounded-2xl flex items-center justify-center gap-4 transition-all active:scale-95 uppercase tracking-widest italic text-sm shadow-2xl ${
+              isLight ? 'bg-slate-950 text-white hover:bg-slate-800' : 'bg-gradient-to-r from-brand-neon to-brand-pink text-brand-dark'
             }`}
           >
             <Download size={22} strokeWidth={3} /> INITIALIZE INJECTION
@@ -128,8 +130,8 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
                 
                 <div className="flex justify-between items-center relative z-10 gap-4">
                   <div className="flex-1">
-                    <h4 className={`text-xl md:text-2xl font-semibold uppercase leading-tight mb-1 ${isLight ? 'text-slate-900' : 'text-white'}`}>{m.label}</h4>
-                    <p className="text-[8px] md:text-[9px] font-medium uppercase tracking-[0.2em] opacity-80">{m.sub}</p>
+                    <h4 className={`text-xl md:text-2xl font-black italic uppercase leading-tight mb-1 ${isLight ? 'text-slate-900' : 'text-white'}`}>{m.label}</h4>
+                    <p className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] opacity-50">{m.sub}</p>
                   </div>
                   <div className={`w-24 h-12 md:w-28 md:h-14 flex items-center justify-end text-white transition-transform duration-500 group-hover/card:scale-105`}>
                     {m.logo}
@@ -140,7 +142,7 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
                   <div className="flex gap-2">
                     {[1, 2, 3].map(i => <div key={i} className="w-10 h-6 rounded-lg bg-white/5 border border-white/10" />)}
                   </div>
-                  <div className={`flex items-center gap-2 text-[10px] font-medium opacity-80 uppercase tracking-widest transition-colors ${isLight ? 'text-slate-400 group-hover/card:text-sky-600' : 'text-brand-textLow group-hover/card:text-brand-neon'}`}>
+                  <div className={`flex items-center gap-2 text-[10px] font-black uppercase tracking-widest italic transition-colors ${isLight ? 'text-slate-400 group-hover/card:text-sky-600' : 'text-brand-textLow group-hover/card:text-brand-neon'}`}>
                     Deploy <ExternalLink size={16} strokeWidth={3} />
                   </div>
                 </div>
@@ -151,7 +153,7 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
       </div>
 
       <div className="space-y-6 pt-12">
-        <h3 className={`text-3xl font-bold tracking-[-0.01em] uppercase ${isLight ? 'text-slate-900' : 'text-white'}`}>Ledger Records</h3>
+        <h3 className={`text-3xl font-black uppercase italic tracking-tighter ${isLight ? 'text-slate-900' : 'text-white'}`}>Ledger Records</h3>
         <GlassCard className="!p-0 overflow-hidden shadow-2xl">
           <div className="overflow-x-auto no-scrollbar">
             <table className="w-full text-left">
@@ -167,17 +169,17 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
               <tbody className="divide-y divide-white/5">
                 {paymentHistory.map((tx) => (
                   <tr key={tx.id} className={`transition-colors ${isLight ? 'hover:bg-slate-50' : 'hover:bg-white/[0.02]'}`}>
-                    <td className="px-4 md:px-10 py-6 md:py-8 font-mono text-[11px] font-medium opacity-80">{tx.id}</td>
-                    <td className="px-4 md:px-10 py-6 md:py-8 text-sm font-medium uppercase">{tx.method}</td>
+                    <td className="px-4 md:px-10 py-6 md:py-8 font-mono text-[11px] font-bold opacity-60">{tx.id}</td>
+                    <td className="px-4 md:px-10 py-6 md:py-8 text-sm font-black italic uppercase">{tx.method}</td>
                     <td className="px-4 md:px-10 py-6 md:py-8">
-                      <span className={`px-3 md:px-4 py-1.5 md:py-2 rounded-full text-[10px] font-medium uppercase border ${
+                      <span className={`px-3 md:px-4 py-1.5 md:py-2 rounded-full text-[10px] font-black uppercase italic border ${
                         tx.status === 'Completed' ? 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' : 'bg-amber-500/10 text-amber-500 border-amber-500/20'
                       }`}>
                         {tx.status}
                       </span>
                     </td>
-                    <td className="px-4 md:px-10 py-6 md:py-8 font-bold tracking-[-0.01em] tabular-nums text-sm">{tx.amount}</td>
-                    <td className="px-4 md:px-10 py-6 md:py-8 text-[10px] opacity-80 text-right uppercase">{tx.date}</td>
+                    <td className="px-4 md:px-10 py-6 md:py-8 font-black text-sm italic">{tx.amount}</td>
+                    <td className="px-4 md:px-10 py-6 md:py-8 text-[10px] opacity-40 text-right uppercase italic">{tx.date}</td>
                   </tr>
                 ))}
               </tbody>
@@ -191,20 +193,20 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
           <div className="absolute inset-0 bg-brand-dark/95 backdrop-blur-2xl" onClick={() => setModalType(null)} />
           <div className={`relative w-full max-w-lg rounded-[3rem] p-12 shadow-2xl border ${isLight ? 'bg-white border-slate-200' : 'bg-[#0A0A0A] border-white/10'}`}>
             <div className="flex justify-between items-center mb-12">
-              <h3 className={`text-4xl font-bold tracking-[-0.01em] uppercase ${isLight ? 'text-slate-950' : 'text-white'}`}>Magnitude</h3>
+              <h3 className={`text-4xl font-black uppercase italic tracking-tighter ${isLight ? 'text-slate-950' : 'text-white'}`}>Magnitude</h3>
               <button onClick={() => setModalType(null)} className="p-2 hover:rotate-90 transition-transform"><X size={36} /></button>
             </div>
             <div className="text-center space-y-8 md:space-y-12">
               <div className="relative border-b border-white/10 pb-4 md:pb-8">
-                <span className="absolute left-0 top-1/2 -translate-y-1/2 text-3xl md:text-5xl font-bold tracking-[-0.01em] tabular-nums opacity-10">$</span>
+                <span className="absolute left-0 top-1/2 -translate-y-1/2 text-3xl md:text-5xl font-black opacity-10">$</span>
                 <input 
                   type="text" 
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
-                  className={`bg-transparent border-none text-6xl md:text-8xl font-bold tracking-[-0.01em] tabular-nums focus:outline-none w-full text-center ${isLight ? 'text-slate-950' : 'text-white'}`}
+                  className={`bg-transparent border-none text-6xl md:text-8xl heavy-italic focus:outline-none w-full text-center ${isLight ? 'text-slate-950' : 'text-white'}`}
                 />
               </div>
-              <button className={`w-full py-8 rounded-3xl font-bold uppercase active:scale-95 transition-all flex items-center justify-center gap-4 ${isLight ? 'bg-slate-950 text-white shadow-xl' : 'bg-gradient-to-r from-brand-neon to-brand-pink text-brand-dark shadow-[0_0_20px_rgba(34,211,238,0.25)]'}`}>
+              <button className={`w-full py-8 rounded-3xl font-black uppercase italic shadow-xl active:scale-95 transition-all flex items-center justify-center gap-4 ${isLight ? 'bg-slate-950 text-white' : 'bg-brand-neon text-brand-dark'}`}>
                 Confirm Protocol Injection <ArrowRight size={24} />
               </button>
             </div>

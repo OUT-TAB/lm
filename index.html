@@ -3,26 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
-    <title>1AdSet</title>
+    <title>ADGRADNIS Nebula</title>
     <script async src="https://ga.jspm.io/npm:es-module-shims@1.10.0/dist/es-module-shims.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
       :root {
-        --brand-neon: #22D3EE;
+        --brand-neon: #00F2EA;
         --brand-teal: #00D1C1;
-        --brand-pink: #FF2D75;
+        --brand-pink: #FF0050;
         --status-active: #10B981;
         --status-paused: #EF4444;
-        --bg-main: #0B0F14;
-        --bg-surface: #0F141A;
-        --bg-card: #151B23;
+        --bg-main: #050505;
+        --bg-surface: #080808;
+        --bg-card: #0C0C0C;
         --text-high: #FFFFFF;
         --text-low: #52525B;
         --border-color: rgba(255, 255, 255, 0.05);
         --transition-speed: 0.3s;
-        --font-body: 'IBM Plex Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-        --font-heading: 'IBM Plex Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        --font-body: 'Inter', sans-serif;
+        --font-heading: 'Outfit', sans-serif;
       }
 
       body.light-mode {
@@ -51,7 +53,8 @@
         overflow-x: hidden;
       }
 
-      h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+      h1, h2, h3, h4, h5, h6, .heavy-italic { font-family: var(--font-heading); }
+      .heavy-italic { font-weight: 900; font-style: italic; letter-spacing: -0.04em; line-height: 1; }
       
       @keyframes spin-perimeter {
         from { transform: rotate(0deg); }
@@ -105,7 +108,12 @@
         filter: blur(5px);
       }
 
-      /* Removed display: none for perimeter glow */
+      /* Enhanced diffusion for light mode visibility - Disabled cycling colors in light mode */
+      body.light-mode .perimeter-glow,
+      body.light-mode .perimeter-glow-active,
+      body.light-mode .perimeter-glow-paused {
+        display: none;
+      }
 
       @keyframes nebula-section-in {
         0% { opacity: 0; transform: translateY(12px) scale(0.99); filter: blur(4px); }
@@ -117,7 +125,7 @@
         will-change: transform, opacity, filter;
       }
 
-      .card-glow-shadow { box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 1px 0 rgba(255,255,255,0.04) inset; }
+      .card-glow-shadow { box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15); }
       .light-mode .card-glow-shadow { box-shadow: 0 20px 50px -20px rgba(0, 181, 173, 0.25); }
 
       .hover-lift { transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease; }
@@ -129,7 +137,7 @@
       tailwind.config = {
         theme: {
           extend: {
-            fontFamily: { sans: ['IBM Plex Sans', 'sans-serif'], heading: ['IBM Plex Sans', 'sans-serif'] },
+            fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Outfit', 'sans-serif'] },
             colors: {
               brand: {
                 dark: 'var(--bg-main)',

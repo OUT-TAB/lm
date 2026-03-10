@@ -43,7 +43,7 @@ export const GlassCard: React.FC<GlassCardProps> = ({
       className={`relative transition-all duration-500 rounded-brand-card group/card overflow-hidden hover-lift card-glow-shadow border
       ${isLight 
         ? 'bg-slate-50/40 backdrop-blur-2xl border-brand-border' 
-        : 'bg-brand-card border-white/5 hover:bg-white/5'
+        : 'bg-brand-card border-white/5'
       } ${className}`}
       onClick={onClick}
       style={style}
@@ -52,8 +52,8 @@ export const GlassCard: React.FC<GlassCardProps> = ({
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <div className={`${getGlowClass()} transition-all duration-700 ${
           variant === 'default' 
-            ? (isLight ? 'opacity-0' : 'opacity-30 group-hover/card:opacity-100')
-            : (isLight ? 'opacity-0' : 'opacity-20 group-hover/card:opacity-60')
+            ? (isLight ? 'opacity-40 group-hover/card:opacity-60' : 'opacity-30 group-hover/card:opacity-100')
+            : (isLight ? 'opacity-50 group-hover/card:opacity-70' : 'opacity-20 group-hover/card:opacity-60')
         }`} />
       </div>
       

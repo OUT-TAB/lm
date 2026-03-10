@@ -4,7 +4,7 @@ import React, { memo, useState, useEffect } from 'react';
 import { 
   LayoutDashboard, 
   Wallet, 
-  CheckCircle2, 
+  ShieldCheck, 
   Users, 
   LifeBuoy, 
   User, 
@@ -51,11 +51,11 @@ export const Sidebar: React.FC<SidebarProps> = memo(({ activeId, setActiveId, is
       <div className={`p-8 flex items-center h-24 ${isCollapsed ? 'p-6 justify-center' : ''}`}>
         <div className="flex items-center gap-4">
           <div className="w-10 h-10 min-w-[40px] rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(0,242,234,0.3)] transition-all bg-gradient-to-br from-brand-neon to-brand-pink text-brand-dark">
-            <CheckCircle2 size={24} strokeWidth={2.5} />
+            <ShieldCheck size={24} strokeWidth={2.5} />
           </div>
           {!isCollapsed && (
-            <span className={`text-xl font-bold tracking-[-0.01em] truncate uppercase ${isLight ? 'text-slate-900' : 'text-brand-textHigh'}`}>
-              1AdSet
+            <span className={`text-xl font-black tracking-tighter truncate italic uppercase ${isLight ? 'text-slate-900' : 'text-brand-textHigh'}`}>
+              ADGRADNIS
             </span>
           )}
         </div>
@@ -68,7 +68,7 @@ export const Sidebar: React.FC<SidebarProps> = memo(({ activeId, setActiveId, is
             <button
               key={item.id}
               onClick={() => setActiveId(item.id)}
-              className={`w-full flex items-center rounded-2xl transition-all duration-200 ease-in-out group relative active:scale-95 ${
+              className={`w-full flex items-center rounded-2xl transition-all duration-300 group relative active:scale-95 ${
                 isCollapsed ? 'justify-center py-5' : 'gap-4 px-4 py-4'
               } ${
                 isActive 
@@ -80,7 +80,7 @@ export const Sidebar: React.FC<SidebarProps> = memo(({ activeId, setActiveId, is
                 {item.icon}
               </span>
               {!isCollapsed && (
-                <span className="font-medium text-[11px] uppercase tracking-widest truncate">
+                <span className="font-bold text-[11px] uppercase tracking-widest truncate italic">
                   {item.label}
                 </span>
               )}
@@ -106,10 +106,10 @@ export const Sidebar: React.FC<SidebarProps> = memo(({ activeId, setActiveId, is
           </div>
           {!isCollapsed && (
             <div className="flex flex-col items-start leading-none">
-              <span className="font-bold text-[11px] uppercase tracking-[0.15em] group-hover:text-brand-pink transition-colors">
+              <span className="font-black text-[11px] uppercase tracking-[0.15em] italic group-hover:text-brand-pink transition-colors">
                 Exit Portal
               </span>
-              <span className="text-[8px] font-medium uppercase tracking-widest opacity-40 mt-1">
+              <span className="text-[8px] font-bold uppercase tracking-widest opacity-40 mt-1">
                 Secure Session End
               </span>
             </div>
