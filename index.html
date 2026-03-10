@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <title>1AdSet</title>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.10.0/dist/es-module-shims.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --brand-neon: #22D3EE;
+        --brand-teal: #00D1C1;
+        --brand-pink: #FF2D75;
+        --status-active: #10B981;
+        --status-paused: #EF4444;
+        --bg-main: #0B0F14;
+        --bg-surface: #0F141A;
+        --bg-card: #151B23;
+        --text-high: #FFFFFF;
+        --text-low: #52525B;
+        --border-color: rgba(255, 255, 255, 0.05);
+        --transition-speed: 0.3s;
+        --font-body: 'IBM Plex Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        --font-heading: 'IBM Plex Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      }
+
+      body.light-mode {
+        --bg-main: #F1F5F9; 
+        --bg-surface: #F8FAFC;
+        --bg-card: #F8FAFC;    
+        --text-high: #000000; 
+        --text-low: #64748B;  
+        --border-color: rgba(15, 23, 42, 0.1); 
+        /* Slightly more saturated versions for light-mode visibility */
+        --brand-neon: #0D9488; 
+        --brand-teal: #0284C7;
+        --brand-pink: #BE123C; 
+        --status-active: #059669;
+        --status-paused: #DC2626;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background-color: var(--bg-main);
+        color: var(--text-high);
+        margin: 0;
+        padding: 0;
+        transition: background-color var(--transition-speed) ease;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4, h5, h6 { 
+        font-family: var(--font-heading); 
+        color: var(--text-high);
+      }
+
+      body.light-mode h1, 
+      body.light-mode h2, 
+      body.light-mode h3, 
+      body.light-mode h4, 
+      body.light-mode h5, 
+      body.light-mode h6 {
+        color: #000000 !important;
+      }
+      
+      @keyframes spin-perimeter {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      /* Base Perimeter Glow */
+      .perimeter-glow {
+        position: absolute;
+        inset: -150%;
+        background: conic-gradient(
+          from 0deg,
+          transparent 0deg,
+          transparent 110deg,
+          var(--brand-neon) 150deg,
+          var(--brand-pink) 210deg,
+          transparent 250deg,
+          transparent 360deg
+        );
+        animation: spin-perimeter 8s linear infinite;
+        filter: blur(4px);
+      }
+
+      .perimeter-glow-active {
+        position: absolute;
+        inset: -150%;
+        background: conic-gradient(
+          from 0deg,
+          transparent 0deg,
+          transparent 110deg,
+          var(--status-active) 180deg,
+          transparent 250deg,
+          transparent 360deg
+        );
+        animation: spin-perimeter 6s linear infinite;
+        filter: blur(5px);
+      }
+
+      .perimeter-glow-paused {
+        position: absolute;
+        inset: -150%;
+        background: conic-gradient(
+          from 0deg,
+          transparent 0deg,
+          transparent 110deg,
+          var(--status-paused) 180deg,
+          transparent 250deg,
+          transparent 360deg
+        );
+        animation: spin-perimeter 6s linear infinite;
+        filter: blur(5px);
+      }
+
+      /* Removed display: none for perimeter glow */
+
+      /* Nano Light Motion for Light Mode */
+      .light-mode .perimeter-glow {
+        background: conic-gradient(
+          from 0deg,
+          transparent 0deg,
+          transparent 140deg,
+          var(--brand-neon) 170deg,
+          var(--brand-pink) 190deg,
+          transparent 220deg,
+          transparent 360deg
+        );
+        filter: blur(6px);
+        opacity: 0.25;
+        animation: spin-perimeter 10s linear infinite;
+      }
+
+      .light-mode .perimeter-glow-active {
+        background: conic-gradient(
+          from 0deg,
+          transparent 0deg,
+          transparent 160deg,
+          var(--status-active) 180deg,
+          transparent 200deg,
+          transparent 360deg
+        );
+        filter: blur(6px);
+        opacity: 0.2;
+        animation: spin-perimeter 12s linear infinite;
+      }
+
+      .light-mode .perimeter-glow-paused {
+        background: conic-gradient(
+          from 0deg,
+          transparent 0deg,
+          transparent 160deg,
+          var(--status-paused) 180deg,
+          transparent 200deg,
+          transparent 360deg
+        );
+        filter: blur(6px);
+        opacity: 0.2;
+        animation: spin-perimeter 12s linear infinite;
+      }
+
+      @keyframes nebula-section-in {
+        0% { opacity: 0; transform: translateY(12px) scale(0.99); filter: blur(4px); }
+        100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+      }
+
+      .animate-section {
+        animation: nebula-section-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        will-change: transform, opacity, filter;
+      }
+
+      .card-glow-shadow { box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 1px 0 rgba(255,255,255,0.04) inset; }
+      .light-mode .card-glow-shadow { box-shadow: 0 20px 50px -20px rgba(0, 181, 173, 0.25); }
+
+      .hover-lift { transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease; }
+      .hover-lift:hover { transform: translateY(-6px); }
+
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['IBM Plex Sans', 'sans-serif'], heading: ['IBM Plex Sans', 'sans-serif'] },
+            colors: {
+              brand: {
+                dark: 'var(--bg-main)',
+                surface: 'var(--bg-surface)',
+                card: 'var(--bg-card)',
+                neon: 'var(--brand-neon)',
+                teal: 'var(--brand-teal)',
+                pink: 'var(--brand-pink)',
+                active: 'var(--status-active)',
+                paused: 'var(--status-paused)',
+                border: 'var(--border-color)',
+                textHigh: 'var(--text-high)',
+                textLow: 'var(--text-low)'
+              }
+            },
+            borderRadius: { 'brand-btn': '9999px', 'brand-card': '1.25rem' }
+          }
+        }
+      }
+    </script>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@^19.2.4",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+        "react/": "https://esm.sh/react@^19.2.4/",
+        "lucide-react": "https://esm.sh/lucide-react@^0.564.0",
+        "recharts": "https://esm.sh/recharts@^3.7.0",
+        "next": "https://esm.sh/next@^16.1.6"
+      }
+    }
+    </script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
