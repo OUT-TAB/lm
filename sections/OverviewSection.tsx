@@ -119,8 +119,8 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({ onNavigate, is
       <StatsGrid isLight={isLight} />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <GlassCard>
-          <div className="p-8">
+        <GlassCard className="flex flex-col">
+          <div className="p-8 flex-1 flex flex-col overflow-hidden">
             <div className="flex justify-between items-start mb-10">
               <div>
                 <div className="flex items-center gap-2 mb-1">
@@ -131,7 +131,7 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({ onNavigate, is
               </div>
               <div className="text-[9px] font-bold tracking-[-0.01em] tabular-nums uppercase tracking-widest text-brand-neon">+14.2% Growth</div>
             </div>
-            <div className="h-[300px] w-full">
+            <div className="flex-1 w-full min-h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={mockWalletData} margin={{ top: 0, right: 0, left: -25, bottom: 0 }}>
                   <defs>
@@ -154,8 +154,8 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({ onNavigate, is
           </div>
         </GlassCard>
 
-        <GlassCard>
-          <div className="p-8">
+        <GlassCard className="flex flex-col">
+          <div className="p-8 flex-1 flex flex-col overflow-hidden">
             <div className="flex justify-between items-start mb-10">
               <div>
                 <div className="flex items-center gap-2 mb-1">
@@ -166,7 +166,7 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({ onNavigate, is
               </div>
               <div className="text-[9px] font-medium opacity-80 uppercase tracking-widest text-brand-pink">Stable Sync</div>
             </div>
-            <div className="h-[300px] w-full">
+            <div className="flex-1 w-full min-h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={mockActivityData} margin={{ top: 0, right: 0, left: -25, bottom: 0 }}>
                   <CartesianGrid vertical={false} stroke={isLight ? '#F1F5F9' : 'rgba(255,255,255,0.05)'} strokeDasharray="3 3" />
