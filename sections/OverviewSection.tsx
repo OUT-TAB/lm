@@ -69,14 +69,14 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({ onNavigate, is
   }, []);
 
   return (
-    <div className="space-y-6 theme-transition pb-20">
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
-        <div>
-          <h2 className={`text-3xl font-black tracking-tight uppercase italic leading-none ${isLight ? 'text-slate-900' : 'text-brand-textHigh'}`}>Dashboard</h2>
-          <p className="text-[11px] font-bold uppercase tracking-widest mt-2 opacity-40">Operational Performance Hub</p>
+    <div className="space-y-6 theme-transition pb-20 pt-0">
+      <div className="flex items-start justify-between gap-6">
+        <div className="space-y-1 text-left">
+          <h2 className="text-4xl font-bold text-brand-textHigh tracking-widest uppercase">Dashboard</h2>
+          <p className="text-sm font-medium text-slate-400 uppercase tracking-widest mt-2">Operational Performance Hub</p>
         </div>
         
-        <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
+        <div className="flex flex-wrap items-center justify-end gap-3 w-full lg:w-auto">
           <div className="relative" ref={filterRef}>
             <button 
               onClick={() => setIsFilterOpen(!isFilterOpen)}
@@ -85,7 +85,7 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({ onNavigate, is
               }`}
             >
               <Calendar size={14} className="text-brand-neon" />
-              <span className="text-[10px] font-black uppercase tracking-widest italic">{timeRange}</span>
+              <span className="text-[10px] font-medium uppercase tracking-widest">{timeRange}</span>
               <ChevronDown size={14} className={`opacity-40 transition-transform ${isFilterOpen ? 'rotate-180' : ''}`} />
             </button>
             {isFilterOpen && (
@@ -96,7 +96,7 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({ onNavigate, is
                   <button
                     key={option}
                     onClick={() => { setTimeRange(option); setIsFilterOpen(false); }}
-                    className={`w-full text-left px-5 py-3 text-[10px] font-black uppercase tracking-widest italic transition-all ${
+                    className={`w-full text-left px-5 py-3 text-[10px] font-medium uppercase tracking-widest transition-all ${
                       timeRange === option ? 'bg-brand-neon/10 text-brand-neon' : 'text-zinc-500 hover:bg-white/5'
                     }`}
                   >
@@ -109,7 +109,7 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({ onNavigate, is
 
           <button 
             onClick={() => onNavigate?.('balance')}
-            className={`px-8 py-3 bg-gradient-to-r from-brand-neon to-brand-pink text-brand-dark text-[10px] uppercase tracking-widest italic rounded-full font-black flex items-center gap-2 hover:scale-[1.02] active:scale-95 transition-all`}
+            className={`px-8 py-3 bg-gradient-to-r from-brand-neon to-brand-pink text-brand-dark text-[10px] uppercase tracking-widest rounded-full font-bold flex items-center gap-2 hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_20px_rgba(34,211,238,0.25)]`}
           >
             <Plus size={16} strokeWidth={3} /> Add Balance
           </button>
@@ -125,29 +125,29 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({ onNavigate, is
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <TrendingUp size={16} className="text-brand-neon" />
-                  <h3 className={`text-lg font-black uppercase italic leading-none ${isLight ? 'text-slate-900' : 'text-white'}`}>WALLET DEPOSITS</h3>
+                  <h3 className={`text-lg font-semibold uppercase leading-none text-brand-textHigh`}>WALLET DEPOSITS</h3>
                 </div>
-                <p className="text-[9px] font-black uppercase tracking-widest opacity-40">Daily inflow to your main balance</p>
+                <p className="text-[9px] font-medium opacity-80 uppercase tracking-widest">Daily inflow to your main balance</p>
               </div>
-              <div className="text-[9px] font-black uppercase tracking-widest text-brand-neon">+14.2% Growth</div>
+              <div className="text-[9px] font-bold tracking-[-0.01em] tabular-nums uppercase tracking-widest text-brand-neon">+14.2% Growth</div>
             </div>
             <div className="h-[300px] w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={mockWalletData} margin={{ top: 0, right: 0, left: -25, bottom: 0 }}>
                   <defs>
                     <linearGradient id="colorWallet" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#00F2EA" stopOpacity={0.4}/>
-                      <stop offset="95%" stopColor="#00F2EA" stopOpacity={0}/>
+                      <stop offset="5%" stopColor="#22D3EE" stopOpacity={0.4}/>
+                      <stop offset="95%" stopColor="#22D3EE" stopOpacity={0}/>
                     </linearGradient>
                   </defs>
-                  <CartesianGrid vertical={false} stroke={isLight ? '#F1F5F9' : '#1A1A1A'} strokeDasharray="3 3" />
-                  <XAxis dataKey="date" axisLine={false} tickLine={false} tick={{ fill: isLight ? '#94A3B8' : '#404040', fontSize: 9, fontWeight: '800' }} dy={10} />
-                  <YAxis axisLine={false} tickLine={false} tick={{ fill: isLight ? '#94A3B8' : '#404040', fontSize: 9, fontWeight: '800' }} />
+                  <CartesianGrid vertical={false} stroke={isLight ? '#F1F5F9' : 'rgba(255,255,255,0.05)'} strokeDasharray="3 3" />
+                  <XAxis dataKey="date" axisLine={false} tickLine={false} tick={{ fill: isLight ? '#94A3B8' : '#8B949E', fontSize: 9, fontWeight: '800' }} dy={10} />
+                  <YAxis axisLine={false} tickLine={false} tick={{ fill: isLight ? '#94A3B8' : '#8B949E', fontSize: 9, fontWeight: '800' }} />
                   <Tooltip 
-                    cursor={{ stroke: '#00F2EA', strokeWidth: 1 }}
+                    cursor={{ stroke: '#22D3EE', strokeWidth: 1 }}
                     contentStyle={{ backgroundColor: isLight ? '#fff' : '#080808', border: '1px solid #1A1A1A', borderRadius: '12px', fontSize: '10px' }}
                   />
-                  <Area type="monotone" dataKey="value" stroke="#00F2EA" strokeWidth={4} fill="url(#colorWallet)" animationDuration={1000} />
+                  <Area type="monotone" dataKey="value" stroke="#22D3EE" strokeWidth={4} fill="url(#colorWallet)" animationDuration={1000} />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -160,18 +160,18 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({ onNavigate, is
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <Activity size={16} className="text-brand-pink" />
-                  <h3 className={`text-lg font-black uppercase italic leading-none ${isLight ? 'text-slate-900' : 'text-white'}`}>AD ACCOUNT ACTIVITY</h3>
+                  <h3 className={`text-lg font-semibold uppercase leading-none text-brand-textHigh`}>AD ACCOUNT ACTIVITY</h3>
                 </div>
-                <p className="text-[9px] font-black uppercase tracking-widest opacity-40">Top-ups vs Withdrawals by day</p>
+                <p className="text-[9px] font-medium opacity-80 uppercase tracking-widest">Top-ups vs Withdrawals by day</p>
               </div>
-              <div className="text-[9px] font-black uppercase tracking-widest text-brand-pink">Stable Sync</div>
+              <div className="text-[9px] font-medium opacity-80 uppercase tracking-widest text-brand-pink">Stable Sync</div>
             </div>
             <div className="h-[300px] w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={mockActivityData} margin={{ top: 0, right: 0, left: -25, bottom: 0 }}>
-                  <CartesianGrid vertical={false} stroke={isLight ? '#F1F5F9' : '#1A1A1A'} strokeDasharray="3 3" />
-                  <XAxis dataKey="date" axisLine={false} tickLine={false} tick={{ fill: isLight ? '#94A3B8' : '#404040', fontSize: 9, fontWeight: '800' }} dy={10} />
-                  <YAxis axisLine={false} tickLine={false} tick={{ fill: isLight ? '#94A3B8' : '#404040', fontSize: 9, fontWeight: '800' }} />
+                  <CartesianGrid vertical={false} stroke={isLight ? '#F1F5F9' : 'rgba(255,255,255,0.05)'} strokeDasharray="3 3" />
+                  <XAxis dataKey="date" axisLine={false} tickLine={false} tick={{ fill: isLight ? '#94A3B8' : '#8B949E', fontSize: 9, fontWeight: '800' }} dy={10} />
+                  <YAxis axisLine={false} tickLine={false} tick={{ fill: isLight ? '#94A3B8' : '#8B949E', fontSize: 9, fontWeight: '800' }} />
                   <Tooltip 
                     cursor={{ fill: 'rgba(255,255,255,0.02)' }}
                     contentStyle={{ backgroundColor: isLight ? '#fff' : '#080808', border: '1px solid #1A1A1A', borderRadius: '12px', fontSize: '10px' }}
@@ -180,8 +180,8 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({ onNavigate, is
                     iconType="circle" 
                     wrapperStyle={{ paddingTop: '20px', fontSize: '9px', textTransform: 'uppercase', fontWeight: '900', letterSpacing: '0.1em' }} 
                   />
-                  <Bar dataKey="topups" name="TOP-UPS" fill="#00F2EA" radius={[4, 4, 0, 0]} barSize={20} />
-                  <Bar dataKey="withdrawals" name="WITHDRAWALS" fill="#FF0050" radius={[4, 4, 0, 0]} barSize={20} />
+                  <Bar dataKey="topups" name="TOP-UPS" fill="#22D3EE" radius={[4, 4, 0, 0]} barSize={20} />
+                  <Bar dataKey="withdrawals" name="WITHDRAWALS" fill="#FF2D75" radius={[4, 4, 0, 0]} barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
             </div>

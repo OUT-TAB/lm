@@ -11,13 +11,13 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({ isLight = false 
   // Fix: Removed internal isLight check in favor of props with a default value
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500 pb-20">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div>
-          <h2 className="text-4xl font-black text-brand-textHigh tracking-tighter uppercase italic leading-none">Profile Core</h2>
-          <p className="text-brand-textLow mt-2 font-medium italic">Manage your operational identity and sync parameters.</p>
+    <div className="space-y-8 animate-in fade-in duration-500 pb-20 pt-0">
+      <div className="flex items-start justify-between gap-4">
+        <div className="space-y-1 text-left">
+          <h2 className="text-4xl font-bold text-brand-textHigh tracking-widest uppercase">Profile Core</h2>
+          <p className="text-sm font-medium text-slate-400 mt-2">Manage your operational identity and sync parameters.</p>
         </div>
-        <button className={`px-6 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all flex items-center gap-3 italic border ${isLight ? 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50 shadow-sm' : 'bg-brand-surface border-brand-border text-brand-textLow hover:text-white'}`}>
+        <button className={`px-6 py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all flex items-center gap-3 border ${isLight ? 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50 shadow-sm' : 'bg-brand-surface border-brand-border text-brand-textLow hover:text-white'}`}>
           <Download size={14} />
           Extract Intel Data
         </button>
@@ -34,7 +34,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({ isLight = false 
             ].map((item) => (
               <button 
                 key={item.label}
-                className={`flex items-center gap-3 px-4 py-3.5 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all italic ${
+                className={`flex items-center gap-3 px-4 py-3.5 rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all ${
                   item.active 
                     ? (isLight ? 'bg-brand-pink text-white shadow-lg' : 'bg-brand-neon/10 text-brand-neon shadow-lg ring-1 ring-brand-neon/20') 
                     : (isLight ? 'text-slate-500 hover:bg-slate-50' : 'text-brand-textLow hover:bg-white/5 hover:text-white')
@@ -53,7 +53,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({ isLight = false 
             <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
               <div className="relative group">
                 <div className={`w-32 h-32 rounded-[2.5rem] p-1 rotate-3 group-hover:rotate-0 transition-transform ${isLight ? 'bg-brand-pink shadow-xl' : 'bg-gradient-to-br from-brand-neon via-white to-brand-pink'}`}>
-                   <div className={`w-full h-full rounded-[2.3rem] flex items-center justify-center text-4xl font-black italic ${isLight ? 'bg-white text-brand-pink' : 'bg-brand-dark text-white'}`}>
+                   <div className={`w-full h-full rounded-[2.3rem] flex items-center justify-center text-4xl font-bold ${isLight ? 'bg-white text-brand-pink' : 'bg-brand-dark text-white'}`}>
                       JD
                    </div>
                 </div>
@@ -62,11 +62,11 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({ isLight = false 
                 </button>
               </div>
               <div className="text-center md:text-left">
-                <h3 className="text-4xl font-black text-brand-textHigh italic tracking-tighter leading-none">John Doe</h3>
-                <p className="text-brand-textLow text-[10px] font-black uppercase tracking-widest mt-3">Sync ID: #928310 • Node Level 3</p>
+                <h3 className="text-4xl font-bold text-brand-textHigh tracking-[-0.01em] leading-none">John Doe</h3>
+                <p className="text-brand-textLow text-[10px] font-medium uppercase tracking-widest mt-3 opacity-80">Sync ID: #928310 • Node Level 3</p>
                 <div className="flex items-center justify-center md:justify-start gap-3 mt-5">
-                  <span className={`text-[9px] font-black px-3 py-1.5 rounded-lg uppercase tracking-widest italic border ${isLight ? 'bg-brand-pink/10 border-brand-pink/20 text-brand-pink' : 'bg-brand-neon/10 border-brand-neon/20 text-brand-neon'}`}>Operational Elite</span>
-                  <span className={`text-[9px] font-black px-3 py-1.5 rounded-lg uppercase tracking-widest italic border ${isLight ? 'bg-slate-100 border-slate-200 text-slate-500' : 'bg-white/5 border-white/10 text-brand-textLow'}`}>US Server Alpha</span>
+                  <span className={`text-[9px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-widest border ${isLight ? 'bg-brand-pink/10 border-brand-pink/20 text-brand-pink' : 'bg-brand-neon/10 border-brand-neon/20 text-brand-neon'}`}>Operational Elite</span>
+                  <span className={`text-[9px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-widest border ${isLight ? 'bg-slate-100 border-slate-200 text-slate-500' : 'bg-white/5 border-white/10 text-brand-textLow'}`}>US Server Alpha</span>
                 </div>
               </div>
             </div>
@@ -79,7 +79,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({ isLight = false 
                 { label: 'Operational Handle', val: '@nebula_admin' }
               ].map((field, i) => (
                 <div key={i} className="space-y-3">
-                  <label className="text-[10px] font-black text-brand-textLow uppercase tracking-widest ml-1 italic">{field.label}</label>
+                  <label className="text-[10px] font-medium text-brand-textLow uppercase tracking-widest ml-1 opacity-80">{field.label}</label>
                   <input 
                     type="text" 
                     defaultValue={field.val} 
@@ -95,7 +95,7 @@ export const ProfileSection: React.FC<ProfileSectionProps> = ({ isLight = false 
             </div>
 
             <div className="mt-12 flex justify-end">
-              <button className={`px-12 py-5 font-black rounded-2xl flex items-center gap-4 transition-all italic uppercase text-xs tracking-widest ${isLight ? 'claim-yield-gradient text-white' : 'bg-brand-neon text-brand-dark shadow-xl hover:scale-[1.02]'}`}>
+              <button className={`px-12 py-5 font-bold rounded-2xl flex items-center gap-4 transition-all uppercase text-xs tracking-widest ${isLight ? 'claim-yield-gradient text-white' : 'bg-brand-neon text-brand-dark shadow-xl hover:scale-[1.02]'}`}>
                 <Save size={20} /> Save Configuration
               </button>
             </div>

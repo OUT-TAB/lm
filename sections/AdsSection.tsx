@@ -149,20 +149,18 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
   };
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-500 max-w-[1600px] mx-auto pb-24">
+    <div className="space-y-6 animate-in fade-in duration-500 max-w-[1600px] mx-auto pb-24 pt-0">
       {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 px-2">
-        <div>
-          <h2 className={`text-4xl font-black tracking-tighter uppercase italic leading-none ${isLight ? 'text-slate-900' : 'text-brand-textHigh'}`}>
-            AD NODES
-          </h2>
-          <div className={`flex items-center gap-2 mt-1 font-bold italic text-[10px] uppercase tracking-widest ${isLight ? 'text-slate-500' : 'text-brand-textLow'}`}>
-            <Zap size={12} className={isLight ? 'text-brand-pink' : 'text-brand-neon'} />
+      <div className="flex items-start justify-between gap-4 px-2">
+        <div className="text-left">
+          <h2 className="text-4xl font-bold text-brand-textHigh tracking-widest uppercase">AD NODES</h2>
+          <div className="flex items-center gap-2 mt-1 font-medium text-sm uppercase tracking-widest text-slate-400">
+            <Zap size={16} className="text-cyan-400" />
             Real-time Node Control Interface
           </div>
         </div>
         
-        <div className="flex items-center gap-2 w-full md:w-auto">
+        <div className="flex items-center justify-end gap-2 w-full md:w-auto px-2">
           <div className={`flex items-center p-1 rounded-xl border ${isLight ? 'bg-slate-100 border-slate-200' : 'bg-white/5 border-white/10'}`}>
             <button 
               onClick={() => setViewMode('grid')}
@@ -180,7 +178,7 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
           <button className={`p-3 rounded-xl transition-all hover:scale-105 border ${isLight ? 'bg-white text-emerald-600 border-emerald-100 shadow-sm' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'}`}>
             <MessageCircle size={18} />
           </button>
-          <button className={`flex-1 md:flex-none px-6 py-3 transition-all hover:scale-[1.02] flex items-center justify-center gap-2 rounded-xl text-[10px] font-black uppercase tracking-widest italic shadow-xl ${isLight ? 'bg-slate-950 text-white' : 'bg-gradient-to-r from-brand-neon to-brand-pink text-brand-dark'}`}>
+          <button className={`flex-1 md:flex-none px-6 py-3 transition-all hover:scale-[1.02] flex items-center justify-center gap-2 rounded-xl text-[10px] font-bold uppercase tracking-widest ${isLight ? 'bg-slate-950 text-white shadow-xl' : 'bg-gradient-to-r from-brand-neon to-brand-pink text-brand-dark shadow-[0_0_20px_rgba(34,211,238,0.25)]'}`}>
             <Plus size={16} strokeWidth={3} />
             <span>Deploy Account</span>
           </button>
@@ -200,14 +198,14 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
                 {/* Card Meta */}
                 <div className="flex justify-between items-start mb-2">
                   <div className="truncate pr-2">
-                    <h4 className={`text-sm font-black italic tracking-tight leading-none uppercase truncate ${isLight ? 'text-slate-950' : 'text-white'}`}>
+                    <h4 className={`text-sm font-semibold tracking-tight leading-none uppercase truncate text-brand-textHigh`}>
                       {acc.name}
                     </h4>
-                    <p className={`text-[7px] font-mono uppercase tracking-widest mt-1 font-bold opacity-40 ${isLight ? 'text-slate-500' : 'text-zinc-500'}`}>
+                    <p className={`text-[7px] font-mono uppercase tracking-widest mt-1 font-medium opacity-80 ${isLight ? 'text-slate-500' : 'text-zinc-500'}`}>
                       ID: {acc.id}
                     </p>
                   </div>
-                  <div className={`px-2 py-0.5 rounded-full text-[6px] font-black uppercase tracking-widest italic border ${
+                  <div className={`px-2 py-0.5 rounded-full text-[6px] font-medium uppercase tracking-widest border ${
                     acc.status === 'Active' 
                       ? (isLight ? 'bg-emerald-500 text-white border-transparent' : 'bg-brand-active/10 text-brand-active border-brand-active/20') 
                       : (isLight ? 'bg-red-500 text-white border-transparent' : 'bg-brand-paused/10 text-brand-paused border-brand-paused/20')
@@ -219,16 +217,16 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
                 {/* Balance Display */}
                 <div className="flex-1 flex flex-col justify-center relative my-2">
                   <div className="group-hover/card:opacity-0 transition-opacity duration-300">
-                    <p className="text-[6px] font-black uppercase tracking-widest opacity-30 mb-1">Available Magnitude</p>
+                    <p className="text-[6px] font-medium uppercase tracking-widest opacity-80 mb-1">Available Magnitude</p>
                     <div className="flex items-baseline">
-                      <span className={`text-base font-black mr-0.5 ${acc.status === 'Active' ? 'text-brand-active' : 'text-brand-paused'}`}>$</span>
-                      <p className={`text-4xl font-black tracking-tighter italic leading-none ${isLight ? 'text-slate-950' : 'text-white'}`}>
+                      <span className={`text-base font-bold tracking-[-0.01em] tabular-nums mr-0.5 ${acc.status === 'Active' ? 'text-brand-active' : 'text-brand-paused'}`}>$</span>
+                      <p className={`text-4xl font-bold tracking-[-0.01em] tabular-nums leading-none text-brand-textHigh`}>
                         {acc.balance}
                       </p>
                     </div>
                     <div className="mt-3">
-                      <p className="text-[6px] font-black uppercase tracking-widest opacity-30">Current Spend</p>
-                      <p className={`text-xs font-black italic ${isLight ? 'text-slate-700' : 'text-zinc-300'}`}>${acc.spend}</p>
+                      <p className="text-[6px] font-medium uppercase tracking-widest opacity-80">Current Spend</p>
+                      <p className={`text-xs font-bold tracking-[-0.01em] tabular-nums ${isLight ? 'text-slate-700' : 'text-zinc-300'}`}>${acc.spend}</p>
                     </div>
                   </div>
 
@@ -237,8 +235,8 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
                     <div className="grid grid-cols-2 gap-x-4 gap-y-2 w-full px-2">
                       {[{ label: 'CPC', val: acc.metrics.cpc }, { label: 'CPA', val: acc.metrics.cpa }, { label: 'CTR', val: acc.metrics.ctr }, { label: 'ROAS', val: acc.metrics.roas, highlight: true }].map((kpi) => (
                         <div key={kpi.label} className={`border-b pb-1 ${isLight ? 'border-slate-100' : 'border-white/5'}`}>
-                          <span className="text-[6px] font-black uppercase opacity-40 block">{kpi.label}</span>
-                          <span className={`text-[10px] font-black italic ${kpi.highlight ? (acc.status === 'Active' ? 'text-brand-active' : 'text-brand-paused') : (isLight ? 'text-slate-900' : 'text-white')}`}>{kpi.val}</span>
+                          <span className="text-[6px] font-medium uppercase opacity-80 block">{kpi.label}</span>
+                          <span className={`text-[10px] font-bold tracking-[-0.01em] tabular-nums ${kpi.highlight ? (acc.status === 'Active' ? 'text-brand-active' : 'text-brand-paused') : (isLight ? 'text-slate-900' : 'text-white')}`}>{kpi.val}</span>
                         </div>
                       ))}
                     </div>
@@ -248,17 +246,17 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
                 {/* Actions Grid */}
                 <div className="space-y-2 mt-2 pt-3 border-t border-brand-border/20">
                   <div className="flex gap-1.5">
-                    <button onClick={() => setConfigAccount(acc)} className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-[7px] font-black uppercase tracking-widest italic transition-all ${isLight ? 'bg-slate-50 text-slate-600 hover:bg-slate-100' : 'bg-white/5 text-zinc-300 hover:bg-white/10'}`}>
+                    <button onClick={() => setConfigAccount(acc)} className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-[7px] font-medium uppercase tracking-widest transition-all ${isLight ? 'bg-slate-50 text-slate-600 hover:bg-slate-100' : 'bg-white/5 text-zinc-300 hover:bg-white/10'}`}>
                       <Settings2 size={10} /> Auto Top-up
                     </button>
-                    <button onClick={handleOpenManager} className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-[7px] font-black uppercase tracking-widest italic transition-all ${isLight ? 'bg-slate-50 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50' : 'bg-white/5 text-zinc-300 hover:text-brand-active hover:bg-brand-active/10'}`}>
+                    <button onClick={handleOpenManager} className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-[7px] font-medium uppercase tracking-widest transition-all ${isLight ? 'bg-slate-50 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50' : 'bg-white/5 text-zinc-300 hover:text-brand-active hover:bg-brand-active/10'}`}>
                       <ExternalLink size={10} /> Ads Manager
                     </button>
                   </div>
                   <div className="flex gap-1.5">
                     <button 
                       onClick={() => handleAddFunds(acc.id)}
-                      className={`flex-1 py-2 rounded-lg transition-all flex items-center justify-center gap-1.5 text-[7px] font-black uppercase tracking-widest italic border ${
+                      className={`flex-1 py-2 rounded-lg transition-all flex items-center justify-center gap-1.5 text-[7px] font-medium uppercase tracking-widest border ${
                       isLight 
                         ? 'bg-emerald-600 text-white border-emerald-700 hover:bg-emerald-700' 
                         : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20 hover:bg-emerald-500 hover:text-black'
@@ -267,7 +265,7 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
                     </button>
                     <button 
                       onClick={() => handleWithdraw(acc.id)}
-                      className={`flex-1 py-2 rounded-lg transition-all flex items-center justify-center gap-1.5 text-[7px] font-black uppercase tracking-widest italic border ${
+                      className={`flex-1 py-2 rounded-lg transition-all flex items-center justify-center gap-1.5 text-[7px] font-medium uppercase tracking-widest border ${
                       isLight 
                         ? 'bg-red-600 text-white border-red-700 hover:bg-red-700' 
                         : 'bg-red-500/10 text-red-400 border-red-500/20 hover:bg-red-500 hover:text-white'
@@ -299,14 +297,14 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
 
                 {/* Name & ID */}
                 <div className="truncate">
-                  <h4 className={`text-[11px] font-black italic uppercase leading-none truncate ${isLight ? 'text-slate-950' : 'text-white'}`}>{acc.name}</h4>
-                  <p className="text-[6px] font-mono uppercase tracking-widest mt-0.5 font-bold opacity-40">ID: {acc.id}</p>
+                  <h4 className={`text-[11px] font-semibold uppercase leading-none truncate text-brand-textHigh`}>{acc.name}</h4>
+                  <p className="text-[6px] font-mono uppercase tracking-widest mt-0.5 font-medium opacity-80">ID: {acc.id}</p>
                 </div>
               </div>
 
               {/* Status */}
               <div className="hidden lg:flex w-20 justify-center">
-                <div className={`px-1.5 py-0.5 rounded-md text-[6px] font-black uppercase tracking-widest italic border ${
+                <div className={`px-1.5 py-0.5 rounded-md text-[6px] font-medium uppercase tracking-widest border ${
                   acc.status === 'Active' 
                     ? (isLight ? 'bg-emerald-500 text-white border-transparent' : 'bg-brand-active/10 text-brand-active border-brand-active/20') 
                     : (isLight ? 'bg-red-500 text-white border-transparent' : 'bg-brand-paused/10 text-brand-paused border-brand-paused/20')
@@ -317,10 +315,10 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
 
               {/* Balance */}
               <div className="w-full lg:w-32 flex flex-row lg:flex-col items-center lg:items-end justify-between lg:justify-center gap-1">
-                <p className="text-[5px] font-black uppercase tracking-widest opacity-30">MAGNITUDE</p>
+                <p className="text-[5px] font-medium uppercase tracking-widest opacity-80">MAGNITUDE</p>
                 <div className="flex items-baseline">
-                  <span className={`text-[8px] font-black mr-0.5 ${acc.status === 'Active' ? 'text-brand-active' : 'text-brand-paused'}`}>$</span>
-                  <p className={`text-base font-black tracking-tighter italic leading-none ${isLight ? 'text-slate-950' : 'text-white'}`}>
+                  <span className={`text-[8px] font-bold tracking-[-0.01em] tabular-nums mr-0.5 ${acc.status === 'Active' ? 'text-brand-active' : 'text-brand-paused'}`}>$</span>
+                  <p className={`text-base font-bold tracking-[-0.01em] tabular-nums leading-none text-brand-textHigh`}>
                     {acc.balance}
                   </p>
                 </div>
@@ -330,7 +328,7 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
               <div className="flex items-center gap-1.5 w-full lg:w-auto">
                 <button 
                   onClick={() => handleAddFunds(acc.id)}
-                  className={`flex-1 lg:flex-none px-3 py-1.5 rounded-lg transition-all flex items-center justify-center gap-1.5 text-[7px] font-black uppercase tracking-widest italic border ${
+                  className={`flex-1 lg:flex-none px-3 py-1.5 rounded-lg transition-all flex items-center justify-center gap-1.5 text-[7px] font-medium uppercase tracking-widest border ${
                   isLight 
                     ? 'bg-emerald-600 text-white border-emerald-700 hover:bg-emerald-700' 
                     : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20 hover:bg-emerald-500 hover:text-black'
@@ -339,7 +337,7 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
                 </button>
                 <button 
                   onClick={() => handleWithdraw(acc.id)}
-                  className={`flex-1 lg:flex-none px-3 py-1.5 rounded-lg transition-all flex items-center justify-center gap-1.5 text-[7px] font-black uppercase tracking-widest italic border ${
+                  className={`flex-1 lg:flex-none px-3 py-1.5 rounded-lg transition-all flex items-center justify-center gap-1.5 text-[7px] font-medium uppercase tracking-widest border ${
                   isLight 
                     ? 'bg-red-600 text-white border-red-700 hover:bg-red-700' 
                     : 'bg-red-500/10 text-red-400 border-red-500/20 hover:bg-red-500 hover:text-white'
@@ -364,8 +362,8 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
                     <Settings2 size={18} />
                   </div>
                   <div>
-                    <h3 className={`text-lg font-black uppercase italic leading-none ${isLight ? 'text-slate-900' : 'text-white'}`}>Auto Protocol</h3>
-                    <p className={`text-[9px] font-bold uppercase tracking-widest mt-1 ${isLight ? 'text-slate-400' : 'text-brand-textLow'}`}>NODE: {configAccount.name}</p>
+                    <h3 className={`text-lg font-bold tracking-[-0.01em] uppercase leading-none text-brand-textHigh`}>Auto Protocol</h3>
+                    <p className={`text-[9px] font-medium uppercase tracking-widest mt-1 opacity-80 ${isLight ? 'text-slate-400' : 'text-brand-textLow'}`}>NODE: {configAccount.name}</p>
                   </div>
                 </div>
                 <button onClick={() => setConfigAccount(null)} className="p-2 transition-all hover:scale-110 text-slate-400 hover:text-brand-pink">
@@ -376,8 +374,8 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
               <div className="space-y-6">
                 <div className={`flex items-center justify-between p-5 rounded-2xl transition-all border ${configAccount.autoInject ? (isLight ? 'bg-emerald-50 border-emerald-100' : 'bg-brand-active/5 border-brand-active/10') : 'bg-white/[0.02] border-brand-border opacity-60'}`}>
                   <div>
-                    <p className={`text-[10px] font-black uppercase tracking-widest italic ${isLight ? 'text-slate-900' : 'text-white'}`}>Automated Injection</p>
-                    <p className="text-[8px] font-bold uppercase tracking-widest mt-0.5 text-brand-textLow">Threshold Scale Logic</p>
+                    <p className={`text-[10px] font-medium uppercase tracking-widest ${isLight ? 'text-slate-900' : 'text-white'}`}>Automated Injection</p>
+                    <p className="text-[8px] font-medium opacity-80 uppercase tracking-widest mt-0.5 text-brand-textLow">Threshold Scale Logic</p>
                   </div>
                   <button onClick={() => toggleAutoInject(configAccount.id)} className={`relative w-10 h-5 rounded-full transition-all duration-500 ease-out flex items-center shadow-inner ${configAccount.autoInject ? (isLight ? 'bg-emerald-600' : 'bg-brand-active') : 'bg-slate-200'}`}>
                     <div className={`absolute w-3.5 h-3.5 rounded-full bg-white transition-all duration-500 ${configAccount.autoInject ? 'left-[22px]' : 'left-[4px]'}`} />
@@ -386,17 +384,17 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-[9px] font-black uppercase tracking-widest italic ml-1 text-slate-400">Threshold</label>
+                    <label className="text-[9px] font-medium opacity-80 uppercase tracking-widest ml-1 text-slate-400">Threshold</label>
                     <div className="relative group">
-                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[10px] font-black opacity-30 text-slate-900">$</span>
-                      <input type="text" value={configAccount.autoTopUpThreshold} onChange={(e) => updateAccountValue(configAccount.id, 'autoTopUpThreshold', e.target.value)} className={`w-full pl-8 pr-4 py-4 rounded-2xl text-xs font-black outline-none border transition-all ${isLight ? 'bg-slate-50 border-slate-200 focus:border-emerald-500 text-slate-900' : 'bg-brand-dark border-white/5 focus:border-brand-active text-white'}`} placeholder="0.00" />
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[10px] font-bold tracking-[-0.01em] tabular-nums opacity-80 text-slate-900">$</span>
+                      <input type="text" value={configAccount.autoTopUpThreshold} onChange={(e) => updateAccountValue(configAccount.id, 'autoTopUpThreshold', e.target.value)} className={`w-full pl-8 pr-4 py-4 rounded-2xl text-xs font-bold tracking-[-0.01em] tabular-nums outline-none border transition-all ${isLight ? 'bg-slate-50 border-slate-200 focus:border-emerald-500 text-slate-900' : 'bg-brand-dark border-white/5 focus:border-brand-active text-white'}`} placeholder="0.00" />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[9px] font-black uppercase tracking-widest italic ml-1 text-slate-400">Amount</label>
+                    <label className="text-[9px] font-medium opacity-80 uppercase tracking-widest ml-1 text-slate-400">Amount</label>
                     <div className="relative group">
-                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[10px] font-black opacity-30 text-slate-900">$</span>
-                      <input type="text" value={configAccount.autoTopUpAmount} onChange={(e) => updateAccountValue(configAccount.id, 'autoTopUpAmount', e.target.value)} className={`w-full pl-8 pr-4 py-4 rounded-2xl text-xs font-black outline-none border transition-all ${isLight ? 'bg-slate-50 border-slate-200 focus:border-emerald-500 text-slate-900' : 'bg-brand-dark border-white/5 focus:border-brand-active text-white'}`} placeholder="0.00" />
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[10px] font-bold tracking-[-0.01em] tabular-nums opacity-80 text-slate-900">$</span>
+                      <input type="text" value={configAccount.autoTopUpAmount} onChange={(e) => updateAccountValue(configAccount.id, 'autoTopUpAmount', e.target.value)} className={`w-full pl-8 pr-4 py-4 rounded-2xl text-xs font-bold tracking-[-0.01em] tabular-nums outline-none border transition-all ${isLight ? 'bg-slate-50 border-slate-200 focus:border-emerald-500 text-slate-900' : 'bg-brand-dark border-white/5 focus:border-brand-active text-white'}`} placeholder="0.00" />
                     </div>
                   </div>
                 </div>
@@ -404,9 +402,9 @@ export const AdsSection: React.FC<AdsSectionProps> = ({ isLight = false }) => {
                 <div className="pt-4 flex flex-col gap-3">
                   <div className={`flex items-center gap-2 px-5 py-3 rounded-xl border ${isLight ? 'bg-emerald-50 border-emerald-100' : 'bg-emerald-500/5 border-emerald-500/10'}`}>
                     <ShieldCheck size={14} className="text-emerald-500" />
-                    <span className="text-[8px] font-black uppercase tracking-widest text-emerald-500 italic">Protocol Verified</span>
+                    <span className="text-[8px] font-medium opacity-80 uppercase tracking-widest text-emerald-500">Protocol Verified</span>
                   </div>
-                  <button onClick={() => setConfigAccount(null)} className={`w-full py-5 rounded-2xl font-black text-[10px] uppercase tracking-widest italic transition-all shadow-xl active:scale-95 ${isLight ? 'bg-slate-950 text-white hover:bg-slate-800' : 'bg-brand-active text-brand-dark'}`}>
+                  <button onClick={() => setConfigAccount(null)} className={`w-full py-5 rounded-2xl font-bold text-[10px] uppercase tracking-widest transition-all shadow-xl active:scale-95 ${isLight ? 'bg-slate-950 text-white hover:bg-slate-800' : 'bg-brand-active text-brand-dark'}`}>
                     Confirm Configuration
                   </button>
                 </div>

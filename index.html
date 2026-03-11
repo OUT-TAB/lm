@@ -3,35 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
-    <title>ADGRADNIS Nebula</title>
+    <title>1AdSet</title>
     <script async src="https://ga.jspm.io/npm:es-module-shims@1.10.0/dist/es-module-shims.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
       :root {
-        --brand-neon: #00F2EA;
+        --brand-neon: #22D3EE;
         --brand-teal: #00D1C1;
-        --brand-pink: #FF0050;
+        --brand-pink: #FF2D75;
         --status-active: #10B981;
         --status-paused: #EF4444;
-        --bg-main: #050505;
-        --bg-surface: #080808;
-        --bg-card: #0C0C0C;
+        --bg-main: #0B0F14;
+        --bg-surface: #0F141A;
+        --bg-card: #151B23;
         --text-high: #FFFFFF;
         --text-low: #52525B;
         --border-color: rgba(255, 255, 255, 0.05);
         --transition-speed: 0.3s;
-        --font-body: 'Inter', sans-serif;
-        --font-heading: 'Outfit', sans-serif;
+        --font-body: 'IBM Plex Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        --font-heading: 'IBM Plex Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       }
 
       body.light-mode {
         --bg-main: #F1F5F9; 
         --bg-surface: #F8FAFC;
         --bg-card: #F8FAFC;    
-        --text-high: #0F172A; 
+        --text-high: #000000; 
         --text-low: #64748B;  
         --border-color: rgba(15, 23, 42, 0.1); 
         /* Slightly more saturated versions for light-mode visibility */
@@ -53,8 +51,19 @@
         overflow-x: hidden;
       }
 
-      h1, h2, h3, h4, h5, h6, .heavy-italic { font-family: var(--font-heading); }
-      .heavy-italic { font-weight: 900; font-style: italic; letter-spacing: -0.04em; line-height: 1; }
+      h1, h2, h3, h4, h5, h6 { 
+        font-family: var(--font-heading); 
+        color: var(--text-high);
+      }
+
+      body.light-mode h1, 
+      body.light-mode h2, 
+      body.light-mode h3, 
+      body.light-mode h4, 
+      body.light-mode h5, 
+      body.light-mode h6 {
+        color: #000000 !important;
+      }
       
       @keyframes spin-perimeter {
         from { transform: rotate(0deg); }
@@ -108,11 +117,50 @@
         filter: blur(5px);
       }
 
-      /* Enhanced diffusion for light mode visibility - Disabled cycling colors in light mode */
-      body.light-mode .perimeter-glow,
-      body.light-mode .perimeter-glow-active,
-      body.light-mode .perimeter-glow-paused {
-        display: none;
+      /* Removed display: none for perimeter glow */
+
+      /* Nano Light Motion for Light Mode */
+      .light-mode .perimeter-glow {
+        background: conic-gradient(
+          from 0deg,
+          transparent 0deg,
+          transparent 140deg,
+          var(--brand-neon) 170deg,
+          var(--brand-pink) 190deg,
+          transparent 220deg,
+          transparent 360deg
+        );
+        filter: blur(6px);
+        opacity: 0.25;
+        animation: spin-perimeter 10s linear infinite;
+      }
+
+      .light-mode .perimeter-glow-active {
+        background: conic-gradient(
+          from 0deg,
+          transparent 0deg,
+          transparent 160deg,
+          var(--status-active) 180deg,
+          transparent 200deg,
+          transparent 360deg
+        );
+        filter: blur(6px);
+        opacity: 0.2;
+        animation: spin-perimeter 12s linear infinite;
+      }
+
+      .light-mode .perimeter-glow-paused {
+        background: conic-gradient(
+          from 0deg,
+          transparent 0deg,
+          transparent 160deg,
+          var(--status-paused) 180deg,
+          transparent 200deg,
+          transparent 360deg
+        );
+        filter: blur(6px);
+        opacity: 0.2;
+        animation: spin-perimeter 12s linear infinite;
       }
 
       @keyframes nebula-section-in {
@@ -125,7 +173,7 @@
         will-change: transform, opacity, filter;
       }
 
-      .card-glow-shadow { box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15); }
+      .card-glow-shadow { box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 1px 0 rgba(255,255,255,0.04) inset; }
       .light-mode .card-glow-shadow { box-shadow: 0 20px 50px -20px rgba(0, 181, 173, 0.25); }
 
       .hover-lift { transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease; }
@@ -137,7 +185,7 @@
       tailwind.config = {
         theme: {
           extend: {
-            fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Outfit', 'sans-serif'] },
+            fontFamily: { sans: ['IBM Plex Sans', 'sans-serif'], heading: ['IBM Plex Sans', 'sans-serif'] },
             colors: {
               brand: {
                 dark: 'var(--bg-main)',

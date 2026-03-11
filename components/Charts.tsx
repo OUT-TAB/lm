@@ -62,11 +62,11 @@ const CustomTooltip = ({ active, payload, label, prefix = "$" }: any) => {
   if (active && payload && payload.length) {
     return (
       <div className={`${isLight ? 'bg-white border-slate-200' : 'bg-[#121212] border-white/10'} border p-3 rounded-xl shadow-2xl backdrop-blur-md`}>
-        <p className="text-brand-textLow text-[10px] font-bold uppercase tracking-wider mb-2">{label}</p>
+        <p className="text-brand-textLow text-[10px] font-medium uppercase tracking-wider mb-2 opacity-80">{label}</p>
         {payload.map((item: any, index: number) => (
           <div key={index} className="flex items-center gap-3 mt-1">
              <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: item.color || item.stroke || item.fill }} />
-             <p className={`${isLight ? 'text-slate-900' : 'text-white'} font-black text-xs`}>
+             <p className={`text-brand-textHigh font-bold text-xs tabular-nums`}>
                 {item.name}: <span style={{ color: item.color || item.stroke || item.fill }}>{prefix}{item.value}</span>
              </p>
           </div>

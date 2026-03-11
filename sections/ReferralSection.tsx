@@ -33,27 +33,27 @@ export const ReferralSection: React.FC<ReferralSectionProps> = ({ isLight = fals
   ];
 
   return (
-    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-6 duration-700 pb-24">
-      <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6">
-        <div className="space-y-1">
+    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-6 duration-700 pb-24 pt-0">
+      <div className="flex items-start justify-between gap-6">
+        <div className="space-y-1 text-left">
           <div className="flex items-center gap-3">
-             <h2 className={`text-4xl font-black text-brand-textHigh tracking-tighter uppercase italic ${isLight ? 'not-italic font-extrabold tracking-tight' : ''}`}>
+             <h2 className="text-4xl font-bold text-brand-textHigh tracking-widest uppercase">
                {isLight ? 'Referral Protocol' : 'Affiliate Protocol'}
              </h2>
-             <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${isLight ? 'bg-brand-pink/10 text-brand-pink' : 'bg-brand-neon/10 border border-brand-neon/20 text-brand-neon animate-pulse'}`}>
+             <span className="px-3 py-1 rounded-full text-xs font-medium uppercase tracking-widest bg-cyan-900/30 text-cyan-400 border border-cyan-500/20">
                Tier 3 Ops
              </span>
           </div>
-          <p className="text-brand-textLow font-medium flex items-center gap-2 italic">
-            <ShieldCheck size={14} className={isLight ? 'text-brand-pink' : 'text-brand-neon'} /> 
-            Extract <span className={`${isLight ? 'text-brand-pink' : 'text-brand-neon'} font-bold`}>5% Magnitude</span> from deployments.
+          <p className="text-slate-400 font-medium flex items-center gap-2">
+            <ShieldCheck size={16} className="text-cyan-400" /> 
+            Extract <span className="text-cyan-400 font-bold">5% Magnitude</span> from deployments.
           </p>
         </div>
-        <div className="flex gap-4 w-full xl:w-auto">
-          <button className={`flex-1 xl:flex-none px-8 py-3 rounded-brand-btn border border-brand-border text-[10px] text-brand-textHigh font-black uppercase tracking-[0.2em] italic hover:bg-brand-textHigh/5 transition-all ${isLight ? 'not-italic font-bold tracking-normal text-sm border-brand-border' : ''}`}>
+        <div className="flex gap-4 w-full xl:w-auto justify-end">
+          <button className={`flex-1 xl:flex-none px-8 py-3 rounded-brand-btn border border-brand-border text-[10px] text-brand-textHigh font-bold uppercase tracking-[0.2em] hover:bg-brand-textHigh/5 transition-all ${isLight ? 'font-bold tracking-normal text-sm border-brand-border' : ''}`}>
             Logs
           </button>
-          <button className={`flex-1 xl:flex-none px-12 py-4 shadow-lg hover:scale-[1.02] active:scale-95 transition-all text-sm uppercase tracking-widest italic ${isLight ? 'claim-yield-gradient' : 'bg-gradient-to-r from-brand-neon to-brand-pink text-brand-dark font-black rounded-brand-btn'}`}>
+          <button className={`flex-1 xl:flex-none px-12 py-4 hover:scale-[1.02] active:scale-95 transition-all text-sm uppercase tracking-widest ${isLight ? 'claim-yield-gradient shadow-lg' : 'bg-gradient-to-r from-brand-neon to-brand-pink text-brand-dark font-bold rounded-brand-btn shadow-[0_0_20px_rgba(34,211,238,0.25)]'}`}>
             Claim Yield
           </button>
         </div>
@@ -63,12 +63,12 @@ export const ReferralSection: React.FC<ReferralSectionProps> = ({ isLight = fals
         {stats.map((stat, i) => (
           <GlassCard key={i} className={`relative group overflow-hidden border-b-2 ${isLight ? 'bg-white border-brand-border' : 'border-b-brand-border hover:border-b-brand-neon/40'}`}>
             <div className="flex justify-end items-start mb-4">
-               <div className={`text-[10px] font-black px-2 py-1 rounded-full flex items-center gap-1 ${isLight ? 'bg-brand-pink/10 text-brand-pink' : 'text-brand-neon bg-brand-neon/10 ring-1 ring-brand-neon/20'}`}>
+               <div className={`text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1 ${isLight ? 'bg-brand-pink/10 text-brand-pink' : 'text-brand-neon bg-brand-neon/10 ring-1 ring-brand-neon/20'}`}>
                   <ArrowUpRight size={12} /> {stat.trend}%
                </div>
             </div>
-            <p className="text-[10px] text-brand-textLow font-black uppercase tracking-[0.3em] mb-1">{stat.label}</p>
-            <p className={`text-3xl font-black text-brand-textHigh tracking-tighter italic ${isLight ? 'not-italic' : ''}`}>{stat.value}</p>
+            <p className="text-[10px] text-brand-textLow font-medium uppercase tracking-[0.3em] opacity-80 mb-1">{stat.label}</p>
+            <p className={`text-3xl font-bold text-brand-textHigh tracking-[-0.01em] tabular-nums`}>{stat.value}</p>
           </GlassCard>
         ))}
       </div>
@@ -79,10 +79,10 @@ export const ReferralSection: React.FC<ReferralSectionProps> = ({ isLight = fals
             <div className="py-4">
               <div className="flex-1 text-center space-y-8">
                  <div>
-                   <h3 className={`text-4xl font-black text-brand-textHigh italic tracking-tighter uppercase leading-none ${isLight ? 'not-italic font-extrabold tracking-tight text-5xl' : ''}`}>
+                   <h3 className={`text-4xl font-bold text-brand-textHigh tracking-[-0.01em] uppercase leading-none ${isLight ? 'text-5xl' : ''}`}>
                      {isLight ? 'Share Your Bridge' : 'Tether Your Bridge'}
                    </h3>
-                   <p className="text-sm text-brand-textLow font-medium italic mt-4 max-w-xl mx-auto">Broadcast your operational signal across global networks to extract maximum value.</p>
+                   <p className="text-sm text-brand-textLow font-medium mt-4 max-w-xl mx-auto">Broadcast your operational signal across global networks to extract maximum value.</p>
                  </div>
                  <div className={`flex gap-2 p-1.5 rounded-2xl shadow-inner max-w-2xl mx-auto ${isLight ? 'bg-brand-dark/5 border border-brand-border' : 'bg-brand-dark border border-brand-border'}`}>
                     <div className="flex-1 px-6 py-4 text-sm font-mono text-brand-textHigh overflow-hidden text-ellipsis whitespace-nowrap rounded-xl flex items-center">
@@ -91,7 +91,7 @@ export const ReferralSection: React.FC<ReferralSectionProps> = ({ isLight = fals
                     </div>
                     <button 
                       onClick={handleCopy}
-                      className={`px-8 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all italic flex items-center gap-3 shadow-lg ${
+                      className={`px-8 py-4 rounded-xl font-bold text-[10px] uppercase tracking-widest transition-all flex items-center gap-3 shadow-lg ${
                         copied 
                           ? (isLight ? 'bg-brand-pink text-white' : 'bg-brand-neon text-brand-dark') 
                           : (isLight ? 'bg-white border border-brand-border text-brand-textHigh hover:bg-brand-pink/10' : 'bg-brand-surface text-white hover:bg-brand-neon/20')
