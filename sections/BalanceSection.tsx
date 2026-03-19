@@ -174,13 +174,13 @@ export const BalanceSection: React.FC<BalanceSectionProps> = ({ isLight = false 
             </div>
           </GlassCard>
 
-          <GlassCard className={`flex items-center gap-4 p-5 group hover:border-amber-500/40 transition-all flex-1 rounded-3xl relative overflow-hidden ${isLight ? 'bg-white border-slate-200' : 'bg-[#0a0c12] border-white/5 shadow-2xl'}`}>
+          <GlassCard className={`flex items-center gap-4 p-5 group hover:border-brand-neon/40 transition-all flex-1 rounded-3xl relative overflow-hidden ${isLight ? 'bg-white border-slate-200' : 'bg-[#0a0c12] border-white/5 shadow-2xl'}`}>
             <Clock 
               size={60} 
-              className="absolute -right-2 -bottom-2 text-amber-500/5 pointer-events-none transform -rotate-12 transition-transform group-hover:rotate-0" 
+              className="absolute -right-2 -bottom-2 text-brand-neon/5 pointer-events-none transform -rotate-12 transition-transform group-hover:rotate-0" 
               strokeWidth={1}
             />
-            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105 shrink-0 z-10 ${isLight ? 'bg-amber-50 text-amber-600' : 'bg-[#151b23] text-[#ffcc00]'}`}>
+            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105 shrink-0 z-10 ${isLight ? 'bg-cyan-50 text-cyan-600' : 'bg-[#151b23] text-brand-neon'}`}>
               <Clock size={20} strokeWidth={2} />
             </div>
             <div className="flex-1 flex items-center justify-between gap-3 min-w-0 z-10">
